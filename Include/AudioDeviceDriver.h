@@ -36,6 +36,8 @@ namespace AudioDevice
 
    public:
       static DeviceInfo::Map listDevices();
+      static bool deviceAvailable(const QString& deviceName);
+
       const float& getSampleRate() const;
       const int& getMaxInputChannels() const;
       const int& getMaxOutputChannels() const;

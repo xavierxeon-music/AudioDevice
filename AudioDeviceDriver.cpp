@@ -82,6 +82,7 @@ AudioDevice::Driver::~Driver()
       Pa_Terminate();
 }
 
+
 AudioDevice::Driver::DeviceInfo::Map AudioDevice::Driver::listDevices()
 {
    DeviceInfo::Map devices;
@@ -133,6 +134,34 @@ AudioDevice::Driver::DeviceInfo::Map AudioDevice::Driver::listDevices()
       Pa_Terminate();
 
    return devices;
+}
+
+bool AudioDevice::Driver::deviceAvailable(const QString& deviceName)
+{
+   if (0 == useCount) // local init
+   {
+      if (paNoError != Pa_Initialize())
+         return false;
+   }
+
+   const QByteArray testName = deviceName.toLatin1();
+   bool deviceFound = false;
+
+   const PaDeviceIndex counter = Pa_GetDeviceCount();
+   for (PaDeviceIndex index = 0; index < counter; index++)
+   {
+      const PaDeviceInfo* paInfo = Pa_GetDeviceInfo(index);
+      if (testName == QByteArray(paInfo->name))
+      {
+         deviceFound = true;
+         break;
+      }
+   }
+
+   if (0 == useCount) // local deinit
+      Pa_Terminate();
+
+   return deviceFound;
 }
 
 const float& AudioDevice::Driver::getSampleRate() const

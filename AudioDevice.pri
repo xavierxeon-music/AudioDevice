@@ -11,7 +11,6 @@ unix {
 INCLUDEPATH += $$PWD/Include
 
 HEADERS += \
-   $$PWD/AudioDeviceInputsTempo.hpp \
    $$PWD/Include/AudioDevice.h \
    $$PWD/Include/AudioDeviceDriver.h \
    $$PWD/Include/AudioDeviceInputCV.h \
@@ -22,8 +21,11 @@ HEADERS += \
    $$PWD/Include/AudioDeviceOutputGate.h \
    $$PWD/Include/AudioDeviceOutputOscilator.h \
    $$PWD/Include/AudioDeviceOutputRaw.h \
+
+HEADERS += \
+   $$PWD/AudioDeviceInputsTempo.hpp \
    $$PWD/Private/AudioDeviceBuffers.h \
-   $$PWD/Private/AudioDeviceCommon.h \
+   $$PWD/Private/AudioDeviceCommon.h
    $$PWD/Private/AudioDeviceDriver.hpp
 
 SOURCES += \
