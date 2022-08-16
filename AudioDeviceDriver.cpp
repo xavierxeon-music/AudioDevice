@@ -311,7 +311,7 @@ PaDeviceIndex AudioDevice::Driver::getDefaultDevice() const
    return deviceId;
 }
 
-void AudioDevice::Driver::printDevices() const
+void AudioDevice::Driver::printDevices()
 {
    qInfo() << "available devices (with default rate in CAPITAL) are:";
 

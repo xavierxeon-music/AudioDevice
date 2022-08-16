@@ -36,6 +36,7 @@ namespace AudioDevice
 
    public:
       static DeviceInfo::Map listDevices();
+      static void printDevices();
       static bool deviceAvailable(const QString& deviceName);
 
       const float& getSampleRate() const;
@@ -60,7 +61,6 @@ namespace AudioDevice
       static int portAudioCallback(const void* inputBuffer, void* outputBuffer, Frame framesPerBuffer, const PaStreamCallbackTimeInfo* timeInfo, PaStreamCallbackFlags statusFlags, void* userData);
       void startStream(const PaDeviceIndex& deviceId);
       PaDeviceIndex getDefaultDevice() const;
-      void printDevices() const;
 
    private:
       static uint useCount;
