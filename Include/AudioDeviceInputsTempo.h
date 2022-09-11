@@ -9,7 +9,7 @@
 
 namespace AudioDevice
 {
-   class InputsTempo : public Tempo
+   class InputsTempo : public TempoControl
    {
    public:
       using ClockFunction = std::function<void()>;

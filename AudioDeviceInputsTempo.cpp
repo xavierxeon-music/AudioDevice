@@ -1,7 +1,7 @@
 #include "AudioDeviceInputsTempo.h"
 
 AudioDevice::InputsTempo::InputsTempo(Driver* driver, const Channel& channelClock, const Channel& channelReset)
-   : Tempo()
+   : TempoControl()
    , clockInput(driver, channelClock)
    , resetInput(driver, channelReset)
    , tickActive(false)
@@ -32,7 +32,7 @@ void AudioDevice::InputsTempo::advance(const float callackRate)
    }
    else
    {
-      Tempo::advance(callackRate);
+      TempoControl::advance(callackRate);
       tickActive = false;
    }
 }
