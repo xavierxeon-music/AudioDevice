@@ -10,7 +10,7 @@ AudioDevice::InputsTempo::InputsTempo(Driver* driver, const Channel& channelCloc
 {
 }
 
-void AudioDevice::InputsTempo::advance(const float callackRate)
+void AudioDevice::InputsTempo::advance(const float callackRate, const float allowedTickPercentage)
 {
    if (resetInput.isOn())
    {
@@ -32,7 +32,7 @@ void AudioDevice::InputsTempo::advance(const float callackRate)
    }
    else
    {
-      TempoControl::advance(callackRate);
+      TempoControl::advance(callackRate, allowedTickPercentage);
       tickActive = false;
    }
 }

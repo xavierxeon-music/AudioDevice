@@ -18,7 +18,7 @@ namespace AudioDevice
       InputsTempo(Driver* driver, const Channel& channelClock, const Channel& channelReset);
 
    public:
-      void advance(const float callackRate) override;
+      void advance(const float callackRate, const float allowedTickPercentage = 3.0) override;
 
       template <typename ClassType>
       void onClockTick(ClassType* instance, void (ClassType::*functionPointer)());

@@ -2,7 +2,7 @@
 #define AudioDeviceOutputOscilatorH
 
 #include "AudioDeviceOutputRaw.h"
-#include <Sound/WaveTable.h>
+#include <Sound/WaveTableOscilator.h>
 
 #include <Sound/StandardTable.h>
 
